@@ -12,6 +12,7 @@
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "@prisma/client": "^5.12.1",
+    "flush-promises": "^1.0.2",
     "nuxt": "^3.11.2",
     "prisma": "^5.12.1",
     "ts-node": "^10.9.2",
@@ -27,6 +28,7 @@
     "playwright-core": "^1.43.0",
     "vite-plugin-vuetify": "^2.0.3",
     "vitest": "^1.4.0",
+    "vitest-environment-nuxt": "^1.0.0",
     "vuetify": "^3.5.14"
   },
   "prisma": {
