@@ -1,17 +1,15 @@
-/// <reference types="vitest" />
+
 
 import { defineConfig } from "vite";
 import Vue from "@vitejs/plugin-vue";
 import vuetify from 'vite-plugin-vuetify'
 import path from 'path'
+import { defineVitestConfig } from '@nuxt/test-utils/config'
 
 
-export default defineConfig({
+export default defineVitestConfig({
   plugins: [
-    Vue(),
-    vuetify({
-      autoImport: true,
-    }),
+
   ],
   resolve: {
     alias: {
@@ -20,7 +18,7 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    environment: "happy-dom",
+    environment: "nuxt",
     server: {
       deps: {
         inline: ['vuetify'],

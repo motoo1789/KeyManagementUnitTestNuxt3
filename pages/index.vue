@@ -1,6 +1,5 @@
 <template>
     <div>
-        <p>Docker環境確認2回目</p>
         <HelloMessage :name="name" />
         <p>
             <input type="text" v-model="name" />
@@ -152,11 +151,10 @@
                     Accept: 'application/json'
                 }
             })
-            console.log(response.data.value.message)
-            alertSuccessText = response.data.value.message;
-            alertColor = response.data.value.color;
-            alertType = response.data.value.type;
-
+            alertSuccessText.value = response.data.value?.message;
+            alertColor.value = response.data.value.color;
+            alertType.value = response.data.value.type;
+            
             // ユーザー操作ではcomponentは更新されないのでalertの再描画処理を記述
             renderKey.value = renderKey.value + 1; 
             return response.data.value.message;
