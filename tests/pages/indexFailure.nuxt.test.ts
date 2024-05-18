@@ -6,12 +6,12 @@ import checkout from "~/components/HelloMessage.vue"
 import { mountSuspended, registerEndpoint } from '@nuxt/test-utils/runtime';
 import flushPromises from 'flush-promises';
 
-describe("index.vue success", () => {
+describe("index.vue failure", () => {
   registerEndpoint("/api/checkout",{
     handler: () => ({
-      message: "貸出処理完了です",
-      color: "success",
-      type: "success"
+      message: "貸出処理でエラーが発生しました",
+      alertColor: "error",
+      type: "error"
     }),
     method: "POST"
   });
@@ -25,7 +25,7 @@ describe("index.vue success", () => {
     await flushPromises(); // すべての非同期処理が完了するのを待つ
     await wrapper.vm.$nextTick(); // 再描画を待つ
     expect(wrapper.exists()).toBeTruthy();
-    expect(wrapper.findComponent('.checkoutAlert').text()).toContain("貸出処理完了です");
+    expect(wrapper.findComponent('.checkoutAlert').text()).toContain("貸出処理でエラーが発生しました");
     console.log(wrapper.findComponent('.checkoutAlert').text());
   });
 });
