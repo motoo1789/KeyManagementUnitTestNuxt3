@@ -88,8 +88,6 @@
     let alertColor = ref("info");
     let alertType = ref("info");
 
-
-
     // tabs
     const tab = ref(0);
 
