@@ -131,7 +131,6 @@
                     Accept: 'application/json'
                 }
             })
-            console.log(response);
             alertSuccessText.value = response.data.value?.message;
             alertColor.value = response.data.value.color;
             alertType.value = response.data.value.type;

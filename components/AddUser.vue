@@ -80,7 +80,7 @@
                     Accept: 'application/json'
                 }
             })
-            console.log(response.data);
+
             // responseの処理
             alertUserAddText.value = response.data.value.message;
             alertAddUserColor = response.data.value.color;
