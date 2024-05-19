@@ -10,6 +10,7 @@ export async function approveIdRead(): Promise<any> {
     })
     .catch((error) => {
         console.error(error);
+        return null;
     });  
 
     return result;
@@ -24,6 +25,7 @@ export async function findApprove(user: string): Promise<any> {
     })
     .catch((error) => {
         console.error(error);
+        return null;
     });  
 
     return result?.approver ?? null;
@@ -40,6 +42,7 @@ export async function createApprove(approver: string, status: boolean): Promise<
     })
     .catch((error) => {
         console.error(error);
+        return null;
     });
 
     return createUser ?? null;

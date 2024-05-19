@@ -16,74 +16,52 @@
             </v-tabs>
         
             <v-window v-model="tab">
-              <v-window-item
-                value=0
-              >
-                <v-container>
-                    <v-row>
-                        <v-col cols="6">
-                            <v-card 
-                                class="mx-auto keyType1"
-                                height="200"
-                                image="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-                                max-width="200"
-                                theme="dark"
-                                title="keyType1"
-                                @click="clickCheckout(0)"
-                            ></v-card>
-                        </v-col>
-                        <v-col  cols="6">
-                            <v-card
-                                class="mx-auto keyType2"
-                                height="200"
-                                image="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-                                max-width="200"
-                                theme="dark"
-                                title="keyType1"
-                                @click="clickCheckout(1)"
-                            ></v-card>
-                        </v-col>
-                    </v-row>
-                    <v-row>
-                        <v-alert
-                            v-model="alertSuccess"
-                            :color="alertColor"
-                            :title="alertSuccessText"
-                            :key="renderKey"
-                            :type="alertType"
-                            class="checkoutAlert"
+                <v-window-item
+                    value=0
+                >
+                    <v-container>
+                        <v-row>
+                            <v-col cols="6">
+                                <v-card 
+                                    class="mx-auto keyType1"
+                                    height="200"
+                                    image="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                                    max-width="200"
+                                    theme="dark"
+                                    title="keyType1"
+                                    @click="clickCheckout(0)"
+                                ></v-card>
+                            </v-col>
+                            <v-col  cols="6">
+                                <v-card
+                                    class="mx-auto keyType2"
+                                    height="200"
+                                    image="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                                    max-width="200"
+                                    theme="dark"
+                                    title="keyType1"
+                                    @click="clickCheckout(1)"
+                                ></v-card>
+                            </v-col>
+                        </v-row>
+                        <v-row>
+                            <v-alert
+                                v-model="alertSuccess"
+                                :color="alertColor"
+                                :title="alertSuccessText"
+                                :key="renderKey"
+                                :type="alertType"
+                                class="checkoutAlert"
+                            ></v-alert>
+                        </v-row>
+                    </v-container>
+                </v-window-item>
 
-                        ></v-alert>
-                        
-                    </v-row>
-                </v-container>
-              </v-window-item>
-
-              <v-window-item
-                value=1
-              >
-              <v-container>
-                    <v-row>
-                        <v-col
-                            cols="12"
-                            md="4"
-                        >
-                            <v-text-field
-                                v-model="registName"
-                                :counter="10"
-                                :rules="nameRules"
-                                label="登録名"
-                                hide-details
-                                required
-                                class="d-flex justify-center"
-                            ></v-text-field>
-                        </v-col>
-                    </v-row>   
-                    <v-row>
-                        アラート
-                    </v-row>         
-                </v-container>
-              </v-window-item>
+                <v-window-item
+                    value = 1
+                >
+                    <AddUser />
+                </v-window-item>
 
               <v-window-item
                 value=2
@@ -109,6 +87,8 @@
     let alertSuccessText = ref("貸出結果が表示されます");
     let alertColor = ref("info");
     let alertType = ref("info");
+
+
 
     // tabs
     const tab = ref(0);
@@ -151,6 +131,7 @@
                     Accept: 'application/json'
                 }
             })
+            console.log(response);
             alertSuccessText.value = response.data.value?.message;
             alertColor.value = response.data.value.color;
             alertType.value = response.data.value.type;

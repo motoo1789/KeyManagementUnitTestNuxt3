@@ -6,7 +6,6 @@ import { describe, test, expect } from "vitest";
 describe("checkout", async () => {
     const checkoutLastIdObj : { id : number } = await checkoutIdLastRead();
     const id = checkoutLastIdObj === null ? 1 : checkoutLastIdObj?.id + 1;
-
     test("貸出処理の正常テスト 貸出ステータス false", async () => {
 
         // test data
@@ -50,11 +49,11 @@ describe("checkout", async () => {
         expect(resultCheckout.id).toEqual(checkoutAssert.id);
         expect(resultCheckout.user).toEqual(checkoutAssert.user);
         // checkoutはapproveと同じはず
-        expect(resultApprove.id).toEqual(checkoutAssert.approve);
+        expect(resultCheckout.id).toEqual(checkoutAssert.approve);
         expect(resultCheckout.key).toEqual(checkoutAssert.key);
 
         // message test
-        expect(resultMessage).toEqual("貸出処理が完了しました");
+        expect(resultMessage.message).toEqual("貸出処理完了です");
 
 
         // expect(result).not.toBeUndefined();
@@ -111,11 +110,11 @@ describe("checkout", async () => {
         expect(resultCheckout.id).toEqual(checkoutAssert.id);
         expect(resultCheckout.user).toEqual(checkoutAssert.user);
         // checkoutはapproveと同じはず
-        expect(resultApprove.id).toEqual(checkoutAssert.approve);
+        expect(resultCheckout.id).toEqual(checkoutAssert.approve);
         expect(resultCheckout.key).toEqual(checkoutAssert.key);
 
         // message test
-        expect(resultMessage).toEqual("貸出処理が完了しました");
+        expect(resultMessage.message).toEqual("貸出処理完了です");
 
 
         // expect(result).not.toBeUndefined();

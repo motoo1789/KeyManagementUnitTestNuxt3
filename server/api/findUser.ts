@@ -10,6 +10,7 @@ export async function findUser(user: string): Promise<any> {
     })
     .catch((error) => {
         console.error(error);
+        return null;
     });  
 
     return result ?? null;
