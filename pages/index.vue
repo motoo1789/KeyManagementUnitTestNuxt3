@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HelloMessage :name="name" />
+        <!-- <HelloMessage :name="name" /> -->
         <p>
             <input type="text" v-model="name" />
         </p>
@@ -57,17 +57,13 @@
                     </v-container>
                 </v-window-item>
 
-                <v-window-item
-                    value = 1
-                >
+                <v-window-item value = 1>
                     <AddUser />
                 </v-window-item>
 
-              <v-window-item
-                value=2
-              >
-                
-              </v-window-item>
+                <v-window-item value=2>
+                    <CheckoutHistory />
+                </v-window-item>
             </v-window>
           </v-card>
     </div>
