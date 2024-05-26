@@ -34,28 +34,19 @@
 
     const add = async () : Promise<any> => {
         try {
-            const response : object = await useFetch("/api/addUser", {
-                method: 'POST',
-                body: {
-                    user: registName,
-                    approver: approver,
-                    mail: mail
-                },
+            const response : object = await useFetch("/api/checkoutHistory", {
+                method: 'GET',
                 headers: {
                     Accept: 'application/json'
                 }
             })
 
             // responseの処理
-            alertUserAddText.value = response.data.value.message;
-            alertAddUserColor = response.data.value.color;
-            renderKey.value++;
+
         } 
         catch (err) {
             console.log("ユーザー登録失敗");
-            alertUserAddText.value = "ユーザー登録失敗";
-            alertAddUserColor.value = 'error';
-            renderKey.value++;
+
         }
     }
 </script>
