@@ -66,10 +66,7 @@
               <v-window-item
                 value=2
               >
-                <v-data-table
-                    :items="desserts"
-                    :headers="headers"
-                ></v-data-table>
+                
               </v-window-item>
             </v-window>
           </v-card>
@@ -93,29 +90,6 @@
 
     // 登録
     const registName = ref("");
-
-    const desserts = [
-        {
-            checkout_date: '2024-04-02 00:00:00',
-            name: "テストさん",
-            key_type: "ドラえもん",
-            return_date: '2024-04-03 00:00:00',
-        },
-        {
-            checkout_date: '2024-04-02 00:00:00',
-            name: "テストさん2",
-            key_type: "ピカチュウ",
-            return_date: '2024-04-03 00:00:00',
-        },
-    ]
-
-    const headers = [
-                { title: '貸出日時', value: 'checkout_date', align: 'end' },
-                { title: '名前', value: 'name', align: 'end' },
-                { title: '鍵種', value: 'key_type', align: 'end' },
-                { title: '返却日時', value: 'return_date', align: 'end' },
-    ];
-
 
     const clickCheckout = async (keytype: number) : Promise<any> => {
         try {
