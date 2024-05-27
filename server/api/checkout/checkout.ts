@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client'
-import { createApprove } from "./approve.js"
-import { findUser } from "./findUser.js"
+import { createApprove } from "../approve.js"
+import { findUser } from "../findUser.js"
 
 const prisma = new PrismaClient();
 
@@ -103,3 +103,4 @@ export async function checkoutIdLastRead(): Promise<any> {
 
     return createUser ?? null;
 }
+

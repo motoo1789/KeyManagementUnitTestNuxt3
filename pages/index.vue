@@ -89,7 +89,7 @@
 
     const clickCheckout = async (keytype: number) : Promise<any> => {
         try {
-            const response = await useFetch("/api/checkout", {
+            const response = await useFetch("/api/checkout/checkout", {
                 method: 'POST',
                 body: {
                     user: "checkouttest0001",

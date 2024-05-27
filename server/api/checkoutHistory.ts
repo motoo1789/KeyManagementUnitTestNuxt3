@@ -1,3 +1,0 @@
-function hisoty() {
-    return undefined;
-}
