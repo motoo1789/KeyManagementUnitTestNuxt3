@@ -1,6 +1,7 @@
 
 import { describe, test, expect } from "vitest";
 import { mount } from "@vue/test-utils";
+import { read } from "~/server/api/checkout/read";
 
 describe("index.vue success", () => {
 
@@ -16,17 +17,17 @@ describe("index.vue success", () => {
      * Act
      */
     const result = undefined;
-    const funcresult = hisotry();
+    const funcresult = await read();
+    const tmp = funcresult[0];
+    const date = new Date(tmp["checkout_date"]);
+    console.log(date.toLocaleString("ja-JP", {timeZone: 'Asia/Tokyo'}).replaceAll('/', '-'))
     /**
      * Assert
      */
-    expect(result).toBeUndefined();
+    // expect(funcresult).toBe(null);
+    expect(funcresult).not.toBeUndefined();
   });
 });
-
-function hisotry() {
-    return undefined;
-}
 
 const assertDate = [
     {
