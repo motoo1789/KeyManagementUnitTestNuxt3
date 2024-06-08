@@ -25,14 +25,9 @@ describe("index.vue success", () => {
     /**
      * Act
      */
-    const result = undefined;
     const funcresult = await read();
-    const tmp = funcresult[0];
-    const date = new Date(tmp["checkout_date"]);
-    console.log(date.toLocaleString("ja-JP", {timeZone: 'Asia/Tokyo'}).replaceAll('/', '-'))
-    
-
-    
+ 
+   
     /**
      * Assert
      */
