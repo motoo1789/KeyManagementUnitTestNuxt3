@@ -15,6 +15,23 @@
     const KEY_TYPE_DORA = 1;
     let render = ref(0);
 
+    // const desserts = [
+    //     {
+    //         id: 1,
+    //         checkout_date: '2024-04-02 00:00:00',
+    //         name: "テストさん",
+    //         key_type: "ドラえもん",
+    //         return_date: '2024-04-03 00:00:00',
+    //     },
+    //     {
+    //         id: 2,
+    //         checkout_date: '2024-04-02 00:00:00',
+    //         name: "テストさん",
+    //         key_type: "ドラえもん",
+    //         return_date: '2024-04-03 00:00:00',
+    //     },
+    // ]
+
     const desserts = ref<Array<Object>>([]);
     onMounted(async () => {
         console.log("onMounted");
@@ -27,17 +44,20 @@
             })
 
             // responseの処理
+            console.log(response.data.value);
             response.data.value.forEach( checkout => {
+                const checkout_date = normalizationDate(checkout.checkout_date)
+                const return_date = normalizationDate(checkout.return_date)
                 const row : Object = {
                     id: checkout.id,
-                    checkout_date: normalizationDate(checkout.checkout_date),
+                    checkout_date: checkout_date,
                     name: checkout.user,
                     key_type: checkout.key === KEY_TYPE_PICA ? 'ピカチュウ' : 'ドラえもん',
-                    return_date: normalizationDate(checkout.return_date)
+                    return_date: return_date
                 }
                 desserts.value.push(row);
             });
-        //     render.value++;
+            render.value++;
         } 
         catch (err) {
             console.log("貸出履歴表示失敗");
