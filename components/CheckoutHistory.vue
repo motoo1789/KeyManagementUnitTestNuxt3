@@ -15,23 +15,6 @@
     const KEY_TYPE_DORA = 1;
     let render = ref(0);
 
-    // const desserts = [
-    //     {
-    //         id: 1,
-    //         checkout_date: '2024-04-02 00:00:00',
-    //         name: "テストさん",
-    //         key_type: "ドラえもん",
-    //         return_date: '2024-04-03 00:00:00',
-    //     },
-    //     {
-    //         id: 2,
-    //         checkout_date: '2024-04-02 00:00:00',
-    //         name: "テストさん",
-    //         key_type: "ドラえもん",
-    //         return_date: '2024-04-03 00:00:00',
-    //     },
-    // ]
-
     const desserts = ref<Array<Object>>([]);
     onMounted(async () => {
         console.log("onMounted");
