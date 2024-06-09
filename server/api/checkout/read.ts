@@ -2,8 +2,17 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient();
 
-export async function read() : Promise<any>{
+export default defineEventHandler(async (event) => {
+    console.log("サーバー側処理 : /api/checkout/read")
 
+    if (event.node.req.method === 'GET') 
+    {
+        return await read();
+    }
+})
+
+export async function read() : Promise<any>{
+    console.log("front からよばれる");
     const createUser = await prisma.checkout.findMany({
 
     }).catch((error) => {
@@ -11,8 +20,3 @@ export async function read() : Promise<any>{
     });
     return createUser;
 }
-
-export async function tmp() {
-    return "test";
-}
-
